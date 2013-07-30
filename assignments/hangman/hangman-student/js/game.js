@@ -1,30 +1,23 @@
 var word = {
-<<<<<<< HEAD
   secretWord: "ruby",
-=======
   // This is an attribute of the object word.
   secretWord: "model",
->>>>>>> ed9c4dd6948dec602b08f2199eac42e4eb3a3e43
   wordList: ['ruby', 'rails', 'javascript', 'array', 'hash', 'underscore', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database'],
 
   // START HERE: Step 1
   // Selects a random word from the word list sets the secret word
-<<<<<<< HEAD
   setSecretWord: function(){
     // this.secretWord = _.shuffle(word.wordList)[5];
     return "ruby";
-=======
   // it will set the secretWord attribute from Line 3
   setSecretWord: function(){
     //this.secretWord = this.wordList[Math.floor(Math.random() * this.wordList.length)];
     this.secretWord = this.wordList[_.random(this.wordList.length - 1)];
->>>>>>> ed9c4dd6948dec602b08f2199eac42e4eb3a3e43
   },
 
   // This feels pretty hard- what can we do to make it easier, or fake it for the moment?
   // How do we deal with multiple, multiple occurrances of letters (ie. google)?
   // Takes an array of letters as input and returns an array of two items:
-<<<<<<< HEAD
   // 1) A string with the parts of the secret word that have been guessed correctly and underscore for the parts that haven't
   // 2) An array of all the guessed letters that were not in the secret word
   checkLetters: function(guessedLetters){
@@ -33,7 +26,6 @@ var word = {
       return _.contains(correctLetters, letter);
     });
     return [correctLetters, wrongLetters];
-=======
   // 1) A string with the parts of the secret word that have been guessed correctly and an underscore for the parts that haven't
   // 2) An array of all the guessed letters that were not in the secret word. This is my 'wrongLetters' array
   checkLetters: function(guessedLetters){
@@ -41,7 +33,7 @@ var word = {
     // I have an array of guessed letters
     // I have my secret word of 'model'
     // this.secretWord; => model
-    // guessedLetters; => mq 
+    // guessedLetters; => mq
     var correct_letters = _.intersection(this.secretWord, guessedLetters);
     var wrongLetters = [];
     for(var i = 0; i < guessedLetters.length; i++) {
@@ -51,8 +43,7 @@ var word = {
         }
       }
     }
-    return ['m____',wrongLetters]; 
->>>>>>> ed9c4dd6948dec602b08f2199eac42e4eb3a3e43
+    return ['m____',wrongLetters];
   }
 };
 
