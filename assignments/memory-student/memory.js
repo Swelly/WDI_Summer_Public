@@ -22,13 +22,29 @@ var lastId = '',
 
 //Code In Here gets executed once code is ready. ie hovering, clicking events//
 $(function() {
-
+  $('#controls #small').click(function(event){
+    startGame();
+  });
 });
 
 // Initializes the game and creates the board
 function startGame() {
+  $.each(lettersSmall, function (index, value){
+    var table = $('#game');
+    var column = document.createElement('div');
+    $(column).addClass('card');
+    $(column).attr('id', index);
+    $(column).text(value);
+    $(table).append(column);
 
+  })
 }
+  // for (var i = 0; i < lettersSmall.length; i++) {
+  //   $('#game').append('<div class = "card"></div>').each(function(i) {
+  //   if (this.class = "card") {
+  //     $('div.card').attr('id', i);
+  //   }
+  // });
 
 // Flips a card and checks for a match
 function cardClick() {
