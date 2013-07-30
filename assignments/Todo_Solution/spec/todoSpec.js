@@ -28,6 +28,11 @@ describe("todoItem", function() {
   it("should have a method render that returns a list element", function() {
     expect(todoItem.render().nodeName).toBe("LI")
   });
+
+  it("should clear all tasks when the 'clear tasks' button is clicked", function() {
+    document.getElementById('clear-tasks').click();
+    expect(todoApp.clearTasksButton()).toHaveBeenCalled();
+  });
 });
 
 //Test the new task creation methods
