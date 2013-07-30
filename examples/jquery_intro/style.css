@@ -1,0 +1,9 @@
+.blue {
+  color: blue;
+  font-family: Oxygen;
+  position: relative;
+  letter-spacing: 3px;
+}
+li {
+  line-height: 150%;
+}

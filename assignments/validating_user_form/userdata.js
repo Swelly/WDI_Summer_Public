@@ -17,6 +17,7 @@ $(document).ready(function(){
 
   // Initially hide the errors.
   // Check the HTML to see how to select all the items that are error messages.
+  $('span').toggle();
 
   // display() blanks out what is currently being displayed in the display-data area
   // then displays the submitted user data as a list
@@ -27,10 +28,10 @@ $(document).ready(function(){
   addUserDataForm.submit(function(){
 
       //Get values from user inputs
-      var userNameVal;
-      var userAgeVal;
-      var userPhoneVal;
-      var userEmailVal;
+      var userNameVal = $('#user-name').val();
+      var userAgeVal = $('#user-age').val();
+      var userPhoneVal = $('#user-ph').val();
+      var userEmailVal = $('#user-email').val();
 
       // Validate the Name
       function validateName() {
