@@ -36,7 +36,6 @@ function startGame() {
     $(column).attr('id', index);
     $(column).text(value);
     $(table).append(column);
-
   })
 }
   // for (var i = 0; i < lettersSmall.length; i++) {
