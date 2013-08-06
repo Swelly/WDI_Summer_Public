@@ -2,8 +2,8 @@ class School
   attr_accessor :name, :students
 
   def initialize(name)
-    @students = {}
     @name = name
+    @students = {}
   end
 
   def enroll_student(name, gpa)
