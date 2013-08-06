@@ -1,37 +1,41 @@
 if (typeof Object.create !== 'function') {
-	Object.create = function (o) {
-		var F = function () {};
-		F.prototype = o;
-		return new F();
-	};
+  Object.create = function (o) {
+    var F = function () {};
+    F.prototype = o;
+    return new F();
+  };
 }
 
 var guitar = {
   name: "Fender Esquire",
   numberOfStrings: 6,
-  setName: function(name) {
-    this.name = "Fender Jazzmaster";
+  volume: 5,
+  setName: function (name) {
+    this.name = name;
   },
-  breakString: function() {
-    this.numberOfStrings -= 1;
-  },
-  playRock: function() {
+  breakString: function () {
     if (this.numberOfStrings > 0) {
-      this.volume = 11;
-    } else {
+      this.numberOfStrings -= 1;
+    }
+    if (this.numberOfStrings === 0) {
       this.volume = 0;
     }
   },
-  restring: function() {
+  playRock: function () {
+    if (this.numberOfStrings > 0) {
+      this.volume = 11;
+    }
+  },
+  restring: function () {
     if (this.numberOfStrings < 6) {
       this.numberOfStrings = 6;
       this.volume = 5;
     }
   },
-  playBasicRhythm: function() {
+  playBasicRhythm: function () {
     return "jug jigga jug jigga jug";
   },
-  playHighStrings: function() {
+  playHighStrings: function () {
     return "meedley meedley meedley meedley meedley meedley meedley meedley meedley meedley meedley meedley MEEEEEEEEEEEEEEEE. \'And the dragon comes in the NIIIiiiiIIIiiiiIIIIIIIIiiiiiiiiiiiIIIIIIIIiiiIIGGHH\'";
   }
 };
