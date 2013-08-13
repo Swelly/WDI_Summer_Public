@@ -3,10 +3,10 @@ Two main concepts will be explored during this lesson: JavaScript templating of 
 
 ## Handlebars.js
 
-[Handlebars.js](http://handlebarsjs.com/) is a JavaScript library that is used for *templating*. This allows for easier insertion and updating of HTML from data objects using JavaScript. 
+[Handlebars.js](http://handlebarsjs.com/) is a JavaScript library that is used for *templating*. This allows for easier insertion and updating of HTML from data objects using JavaScript.
 
-Conceptually, we can think about Handlebars a bit in the same way we think about ERB. In ERB, we wrap Ruby code in angle brackets: `<% expression %>`. In Handlebars, we wrap the JavaScript code in double curly braces: `{{expression}}` 
-Aside from that, there are some fundamental differences between ERB and Handlebars - most immediately, where we put the HTML that uses Handlebars. 
+Conceptually, we can think about Handlebars a bit in the same way we think about ERB. In ERB, we wrap Ruby code in angle brackets: `<% expression %>`. In Handlebars, we wrap the JavaScript code in double curly braces: `{{expression}}`
+Aside from that, there are some fundamental differences between ERB and Handlebars - most immediately, where we put the HTML that uses Handlebars.
 
 To use Handlebars in our code, we need to include it in a `<script>` tag with a link to handlebars.js on our server or another CDN:
 
@@ -20,7 +20,7 @@ To use Handlebars in our code, we need to include it in a `<script>` tag with a 
 	</html>
 ```
 
-If we're using Rails, we can include Handlebars in our asset pipeline in `/app/assets/javascripts/application.js`, but we'll come back to that later. 
+If we're using Rails, we can include Handlebars in our asset pipeline in `/app/assets/javascripts/application.js`, but we'll come back to that later.
 
 Handlebars doesn't require other JavaScript libraries, but it is compatible with [jQuery](http://jquery.com/), [Underscore](http://underscorejs.org/) and [Backbone](http://backbonejs.org/). In some of the following examples, we'll use jQuery, so include a link to that in the `<head>` of your HTML as well: `<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>`.
 
@@ -59,9 +59,9 @@ Handlebars doesn't require other JavaScript libraries, but it is compatible with
 
 We can see the `post` object in our Chrome JavaScript console, but we'd like to have a template that populates the body of our HTML. Note that we've put the `<script>` containing the `post` object at the bottom of the body. This is so all the elements on the page are present when this code runs. Later, we'll look at how we could put it elsewhere.
 
-*Templates* give us reusable code that will help us populate HTML from JavaScript data objects without a lot of messy DOM manipulation. You could think about these a bit like *partials* in Rails, but again, there are some important differences- primarily how they are rendered into the page. 
+*Templates* give us reusable code that will help us populate HTML from JavaScript data objects without a lot of messy DOM manipulation. You could think about these a bit like *partials* in Rails, but again, there are some important differences- primarily how they are rendered into the page.
 
-Although the templates look mostly like HTML, they'll reside inside of `<script>` tags in the head. Also, these are special `<script>` tags which will have an `id` and a `type`. The `id` names the template (much as we'd name our partial in Rails). The naming used in the id is important. The `type` will always be `type="text/x-handlebars-template"`, which identifies it as a Handlebars template. 
+Although the templates look mostly like HTML, they'll reside inside of `<script>` tags in the head. Also, these are special `<script>` tags which will have an `id` and a `type`. The `id` names the template (much as we'd name our partial in Rails). The naming used in the id is important. The `type` will always be `type="text/x-handlebars-template"`, which identifies it as a Handlebars template.
 
 A template script tag that will help us insert the above JSON object would look like the following and appear in the `<head>` of your HTML:
 
@@ -75,16 +75,16 @@ A template script tag that will help us insert the above JSON object would look 
 </script>
 ```
 
-You can also create a template all in a single line, but this is hard to read and poor form. 
+You can also create a template all in a single line, but this is hard to read and poor form.
 
 ```js
 	// Don't do this
 	var postTemplate = '<div><h1>{{title}}</h1><h4>{{date}}</h4><p>{{body}}</p></div>';
 ```
 
-Our desired result is to render the following HTML into the body, but we still aren't quite there yet. To do that we need compile the template. 
+Our desired result is to render the following HTML into the body, but we still aren't quite there yet. To do that we need compile the template.
 
-```html	
+```html
 	<div>
 		<h1>My first Handlebar Template</h1>
 		<h4>Yesterday</h4>
@@ -96,7 +96,7 @@ Our desired result is to render the following HTML into the body, but we still a
 ```js
 	var template = Handlebars.compile(source);
 ```
-If your templates are JS variables, just pass the variable into the function as the parameter, *but again, storing them as JS variables is pretty messy and frowned upon*. 
+If your templates are JS variables, just pass the variable into the function as the parameter, *but again, storing them as JS variables is pretty messy and frowned upon*.
 
 If you are storing your templates as `<script>` blocks, the template can be generated as follows:
 ```js
@@ -195,7 +195,7 @@ Now, using what we've learned from handlebars thus far, an AJAX call in jQuery c
 	});
 ```
 
-We can put this in our `<script>` tag: 
+We can put this in our `<script>` tag:
 
 ```html
 <!-- 3_example_live_ajax_request.html -->
@@ -256,7 +256,7 @@ Denoting an if statement begins with a # symbol, and we must close it.  If the a
 		{{/if}}
     </div>
 	</script>
-```	
+```
 
 If we have an array of comments in our post object, looping through an object is easy as well, and the {{each}} can be used if the loop is empty:
 ```js
@@ -275,7 +275,7 @@ If we have an array of comments in our post object, looping through an object is
 ```
 
 ####Helpers
-Helpers provide additional mixin functionality that can be used throughout your templates.  Consider them ways to make your code more DRY as well as adding raw JS into your templating.  To start, register your helper:
+Helpers provide additional mix-in functionality that can be used throughout your templates.  Consider them ways to make your code more DRY as well as adding raw JS into your templating. To start, register your helper:
 ```js
 	Handlebars.registerHelper('fullname', function(first_name, last_name) {
 		return first_name + " " + last_name;
@@ -309,7 +309,7 @@ Setting up an "endless" page involves attaching a handler to the `onscroll` even
 	$(window).scroll(function() {
 		// Cache our jQuery selector for window
 		var win = $(window);
-		
+
 		// Infinite scroll math!
 		if(win.height() + win.scrollTop() >= $(document).height()) {
 			populateCountries();
