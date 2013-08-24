@@ -1,0 +1,33 @@
+source 'https://rubygems.org'
+
+gem 'rails', '3.2.13'
+gem 'pg'
+
+group :production do
+	gem 'newrelic_rpm'
+end
+
+gem 'tweetstream'
+gem 'dotenv-rails'
+gem 'pry-rails'
+
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'jquery-rails'
+
+# gem 'unicorn'
+gem 'puma'
+# gem 'thin'
+
+gem 'route_downcaser'
+
+### For rack-cache
+
+gem 'memcachier' # for our specific memcache on heroku
+gem 'rack-cache' # this adds our rack-cache middleware
+gem 'dalli' # newer cache client
+gem 'kgio' # Better i/o
